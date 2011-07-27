@@ -1,0 +1,15 @@
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\ApplicationIcon.png
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Background.png
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\LiveSynergyUIDesign.dll
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\LiveSynergyUIDesign.pdb
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\App.g.i.cs
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\MainPage.g.i.cs
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\LiveSynergyUIDesign.g.resources
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\LiveSynergyUIDesign.dll
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\LiveSynergyUIDesign.pdb
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\AppManifest.xaml
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\LiveSynergyUIDesign.xap
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\XapCacheFile.xml
