@@ -44,6 +44,22 @@
                 
             </controls:PivotItem.Resources>
             
+            <!--LayoutRoot is the root grid where all page content is placed-->
+            <Grid x:Name="LayoutRoot2" Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--TitlePanel contains the name of the application and page title-->
+                <StackPanel x:Name="TitlePanel2" Grid.Row="0" Margin="12,17,0,28">
+                    <TextBlock x:Name="ApplicationTitle2" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock x:Name="PageTitle2" Text="To-do" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+                </StackPanel>
+
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="ContentPanel2" Grid.Row="1" Margin="12,0,12,0"></Grid>
+            </Grid>
         </controls:PivotItem>
 
         <controls:PivotItem Header="Programming">
