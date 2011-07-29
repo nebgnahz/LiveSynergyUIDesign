@@ -13,3 +13,9 @@ C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveS
 C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\AppManifest.xaml
 C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\LiveSynergyUIDesign.xap
 C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\XapCacheFile.xml
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.back.rest.png
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.delete.rest.png
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.next.rest.png
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.add.rest.png
+C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Component\samplePhoto.jpg
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\AddNewThing.g.i.cs

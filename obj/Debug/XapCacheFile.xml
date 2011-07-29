@@ -1,9 +1,14 @@
-﻿<xapCache source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\LiveSynergyUIDesign.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="7/27/2011 11:35:33 AM">
-  <file source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="7/27/2011 11:19:00 AM" />
-  <file source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\LiveSynergyUIDesign.dll" archivePath="LiveSynergyUIDesign.dll" lastWriteTime="7/27/2011 11:35:33 AM" />
+﻿<xapCache source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\LiveSynergyUIDesign.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="7/29/2011 10:07:49 AM">
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="7/27/2011 11:19:00 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\LiveSynergyUIDesign.dll" archivePath="LiveSynergyUIDesign.dll" lastWriteTime="7/29/2011 10:07:49 AM" />
   <file source="C:\Program Files\Microsoft SDKs\Windows Phone\v7.0\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="1/25/2011 12:39:08 AM" />
-  <file source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="7/27/2011 11:19:01 AM" />
-  <file source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Background.png" archivePath="Background.png" lastWriteTime="7/27/2011 11:19:01 AM" />
-  <file source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="7/27/2011 11:19:01 AM" />
-  <file source="C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="7/27/2011 11:31:05 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="7/27/2011 11:19:01 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Background.png" archivePath="Background.png" lastWriteTime="7/27/2011 11:19:01 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Component\samplePhoto.jpg" archivePath="Component\samplePhoto.jpg" lastWriteTime="7/28/2011 2:00:41 PM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Images\appbar.add.rest.png" archivePath="Images\appbar.add.rest.png" lastWriteTime="7/31/2010 9:58:56 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Images\appbar.back.rest.png" archivePath="Images\appbar.back.rest.png" lastWriteTime="7/31/2010 9:58:56 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Images\appbar.delete.rest.png" archivePath="Images\appbar.delete.rest.png" lastWriteTime="7/31/2010 7:45:40 PM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Images\appbar.next.rest.png" archivePath="Images\appbar.next.rest.png" lastWriteTime="7/31/2010 9:58:56 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="7/27/2011 11:19:01 AM" />
+  <file source="C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="7/27/2011 11:31:05 AM" />
 </xapCache>
