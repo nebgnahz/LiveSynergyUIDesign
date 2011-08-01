@@ -9,25 +9,98 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"    
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <!-- a good color: Dodger Blue -->
     
     <phone:PhoneApplicationPage.Resources>
+
+        <!-- The template for the list header. This will scroll as a part of the list. -->
+        <!-- <DataTemplate x:Key="DeviceListHeader">
+            <TextBlock Text="public devices" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </DataTemplate> -->
+        
+        <!-- The group header template, for groups in the main list -->
+        <DataTemplate x:Key="DeviceGroupHeaderLocation">
+            <Border Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}">
+                <TextBlock Text="{Binding Key}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DeviceGroupHeaderNameFirst">
+            <Border Background="Transparent">
+                <Border Background="{StaticResource PhoneAccentBrush}" Width="75" Height="75" HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding Key}" 
+                                           Foreground="{StaticResource PhoneForegroundBrush}" 
+                                           Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
+                </Border>
+            </Border>
+        </DataTemplate>
+        
+        <!-- The template for groups when they are items in the "jump list". Not setting -->
+        <!-- the GroupItemTemplate property will disable "jump list" functionality. -->
+        <DataTemplate x:Key="groupItemHeaderLocation">
+            <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
+                <TextBlock Text="{Binding Key}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            </Border>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="groupItemHeaderNameFirst">
+            <Border Background="{StaticResource PhoneAccentBrush}" Width="99" Height="99" Margin="6" IsHitTestVisible="{Binding HasItems}">
+                <TextBlock Text="{Binding Key}" 
+                                       FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                       FontSize="36"
+                                       Margin="{StaticResource PhoneTouchTargetOverhang}"
+                                       Foreground="{StaticResource PhoneForegroundBrush}"                                        
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="groupItemHeaderName">
+            <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
+                <TextBlock Text="{Binding Key}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            </Border>
+        </DataTemplate>
+
+        <!-- The template for Device items -->
+        <DataTemplate x:Key="DeviceItemTemplate">
+            <Grid Margin="{StaticResource PhoneTouchTargetOverhang}">
+                <StackPanel VerticalAlignment="Top">
+                    <TextBlock Text="{Binding DeviceName}" Style="{StaticResource PhoneTextLargeStyle}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" TextWrapping="Wrap" Margin="12,0,12,6"/>
+                    <!-- <TextBlock Text="{Binding DeviceLocation}" Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" FontFamily="{StaticResource PhoneFontFamilySemiBold}"/> -->
+                </StackPanel>
+                <toolkit:ContextMenuService.ContextMenu>
+                    <toolkit:ContextMenu>
+                        <toolkit:MenuItem Header="View" Click="OnMenuClicked" Tag="VIEW" />
+                        <toolkit:MenuItem Header="Remove" Click="OnMenuClicked" Tag="REMOVE" />
+                    </toolkit:ContextMenu>
+                </toolkit:ContextMenuService.ContextMenu>
+            </Grid>
+        </DataTemplate>
+
+        <LiveSynergy:DeviceByLocation x:Key="DeviceByLocation"/>
+        
     </phone:PhoneApplicationPage.Resources>
     
-    <controls:Pivot Name="pivot" 
-                    Title="LiveSynergy Application">
-        <controls:Pivot.Background>
+    
+    
+    <controls:Panorama Name="panorama" 
+                       Title="LiveSynergy">
+        <controls:Panorama.Background>
             Transparent
             <!-- <ImageBrush ImageSource="/Component/samplePhoto.jpg"/> -->
-        </controls:Pivot.Background>
-        <controls:PivotItem Header="Indoor Map">
+        </controls:Panorama.Background>
+        <controls:PanoramaItem Header="indoor map">
 
             <!--LayoutRoot is the root grid where all page content is placed-->
             <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -47,11 +120,11 @@
             </Grid>
 
 
-        </controls:PivotItem>
+        </controls:PanoramaItem>
         
-        <!-- The second page, revealing all objects-->
-        <controls:PivotItem Header="Objects">
-            <controls:PivotItem.Resources>
+        <!-- The second page, revealing all devices-->
+        <controls:PanoramaItem Header="devices">
+            <controls:PanoramaItem.Resources>
                 <Style x:Key="MetroUIText"
                        TargetType="TextBlock">
                     <Setter Property="TextWrapping" Value="Wrap"></Setter>
@@ -77,10 +150,23 @@
                     <Setter Property="Margin" Value="0,0,20,10"/>
                     <Setter Property="CornerRadius" Value="1" />
                 </Style>
-            </controls:PivotItem.Resources>
+            </controls:PanoramaItem.Resources>
 
+
+            <toolkit:LongListSelector x:Name="ListPublicThing" Background="Transparent"
+                    GroupHeaderTemplate="{StaticResource DeviceGroupHeaderNameFirst}"
+                    GroupItemTemplate="{StaticResource groupItemHeaderNameFirst}"
+                    ItemTemplate="{StaticResource DeviceItemTemplate}">
+
+                <!-- temporarily commented
+                    ListHeaderTemplate="{StaticResource DeviceListHeader}"
+                    GroupHeaderTemplate="{StaticResource DeviceGroupHeader}"
+                    GroupItemTemplate="{StaticResource groupItemHeader}"
+                    ItemTemplate="{StaticResource DeviceItemTemplate}"> -->
+            </toolkit:LongListSelector>
+            
             <!--ContentPanel - place additional content here-->
-            <Grid x:Name="ObjectContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <!-- <Grid x:Name="ObjectContentPanel" Grid.Row="1" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>  
                     <ColumnDefinition Width="*"/>
@@ -89,45 +175,35 @@
                          Name="PrivateThingList"
                          HorizontalAlignment="Center"
                          SelectionChanged="OnListBoxSelectionChanged">
-                    <ListBox.ItemTemplate>
+                    <ListBox.ItemTemplate> -->
                         <!-- Objects of type Physical Device -->
-                        <DataTemplate>
+                        <!-- <DataTemplate>
                             <Grid Background="Transparent">
                                 <Border Style="{StaticResource MetroUIBorder}">
+                                    <toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu DataContext="{Binding}">
+                                            <toolkit:MenuItem Header="View" Click="OnMenuClicked" Tag="VIEW" /> 
+                                            <toolkit:MenuItem Header="Remove" Click="OnMenuClicked" Tag="REMOVE" /> 
+                                        </toolkit:ContextMenu> 
+                                    </toolkit:ContextMenuService.ContextMenu>
                                     <TextBlock Text="{Binding ObjectName}" Style="{StaticResource MetroUIText}"/>
                                 </Border>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                </ListBox>
-               
-                <ListBox Grid.Column="1" 
-                         HorizontalAlignment="Center"   
-                         Name="PublicThingList"
-                         SelectionChanged="OnListBoxSelectionChanged">
-                    <ListBox.ItemTemplate>
-                        <!-- Objects of type Physical Device -->
-                        <DataTemplate>
-                            <Grid Background="Transparent">
-                                <Border Style="{StaticResource MetroUIBorder}">
-                                    <TextBlock Text="{Binding ObjectName}" Style="{StaticResource MetroUIText}"/>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </Grid>
-        </controls:PivotItem>
+                </ListBox>                
+            </Grid> -->
+        </controls:PanoramaItem>
 
-        <controls:PivotItem Header="Programming">
+        <controls:PanoramaItem Header="program" Margin="0, 0">
             <!--ContentPanel - place additional content here-->
             <Grid x:Name="ProgrammingContentPanel" Grid.Row="2" Margin="12,0,12,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="0,0,0,10">
-                    <Rectangle Width="150" Height="60"
+                <!-- <Grid Grid.Row="0" Margin="0,0,0,10">
+                    <Rectangle x:Name="rect" Width="150" Height="60"
                                StrokeThickness="1"
                                Stroke="Magenta" 
                                Margin="30 0"
@@ -146,43 +222,139 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                </Grid>
-                
-                <TextBlock Grid.Row="1" Text="Flow chart here" HorizontalAlignment="Center" VerticalAlignment="Center">
+                </Grid> -->
+
+                <TextBlock Grid.Row="0" x:Name="Description" TextWrapping="Wrap">
+                    Wanna take control of your devices? Create something like the flowchart below. It's easy and straightforward. Click it and start your own.
+                    <Run Foreground="Red" Text=" Currently only support this scheme!"/>
                 </TextBlock>
+                
+                <Canvas x:Name="MainCanvas" Margin="0,20,0,0" Grid.Row="1" Height="240" VerticalAlignment="Top">
+                    <!-- <toolkit:GestureService.GestureListener>
+                        <toolkit:GestureListener Tap="OnTapFlowChart"/>
+                    </toolkit:GestureService.GestureListener> -->
+
+                    <Canvas x:Name="EventDiamond" Width="240" Height="88" VerticalAlignment="Bottom" d:LayoutOverrides="Width" Canvas.Left="80">
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener Tap="OnTapEvent"/>
+                        </toolkit:GestureService.GestureListener>
+                        <Rectangle Fill="#FFF4F4F5" Height="70.7" Canvas.Left="70.006" Stroke="Red" StrokeThickness="3" Canvas.Top="4.312" Width="100" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                            <Rectangle.RenderTransform>
+                                <CompositeTransform SkewX="45" Rotation="-22.5"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="53.1" Canvas.Left="-1.507" Stretch="Fill" Stroke="Red" StrokeThickness="3" Canvas.Top="36.598" UseLayoutRounding="False" Width="3.001"/>
+                        <Path Data="M320,99.25 L320,171.25" Fill="#FFFFFF00" Height="52.838" Canvas.Left="238.513" Stretch="Fill" Stroke="Red" StrokeThickness="3" Canvas.Top="36.662" UseLayoutRounding="False" Width="3"/>
+                        <Path Data="M46.5,97.916656 L16,97.833344" Fill="#FFFFFF00" Height="3.001" Stretch="Fill" Stroke="Red" StrokeThickness="3" Canvas.Top="38.106" UseLayoutRounding="False" Width="35.583" Canvas.Left="-1.615"/>
+                        <Path Data="M296,96 L320,96" Fill="#FFFFFF00" Height="3.001" Canvas.Left="205.542" Stretch="Fill" Stroke="Red" StrokeThickness="3" Canvas.Top="38.167" UseLayoutRounding="False" Width="35.938"/>
+
+                        <TextBlock x:Name="Event" Canvas.Left="80" TextWrapping="Wrap" Canvas.Top="16" Height="43" Width="80" Foreground="#FFF70F0F" FontSize="16"><Run FontStyle="Italic" Text="Something"/><LineBreak/><Run FontStyle="Italic" Text=" Happens?"/></TextBlock>
+                        
+                        <TextBlock TextWrapping="Wrap" Text="Yes" Canvas.Top="12" Foreground="#FFF52B2B"/>
+                        <TextBlock Canvas.Left="213" TextWrapping="Wrap" Text="No" Canvas.Top="11" Foreground="#FFF52B2B"/>
+
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="-6.56" Canvas.Top="74.579">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="-45"/>
+                            </Path.RenderTransform>
+                        </Path>
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="3.487" Canvas.Top="74.551">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="45"/>
+                            </Path.RenderTransform>
+                        </Path>
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="243.541" Canvas.Top="74.306">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="45"/>
+                            </Path.RenderTransform>
+                        </Path>
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="233.468" Canvas.Top="74.355">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="-45"/>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                    
+                    
+                    
+                    <Canvas x:Name="CommandRectangle1" Height="102" Width="128" Canvas.Left="16" Canvas.Top="88">
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener Tap="OnTapCommand1"/>
+                        </toolkit:GestureService.GestureListener>
+                        <Rectangle Fill="#FFF4F4F5" Height="56" Stroke="Red" Width="128"/>
+                        
+                        <TextBlock x:Name="Command1" TextWrapping="Wrap" Height="48" Width="128" Foreground="#FFF70F0F"><Run FontStyle="Italic" Text="a device"/><LineBreak/><Run FontStyle="Italic" Text="do something"/></TextBlock>
+                        
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="49.531" Canvas.Left="62.498" Stretch="Fill" Stroke="Red" StrokeThickness="3" Canvas.Top="54" UseLayoutRounding="False" Width="3.001"/>
+                        <Path Data="M163.54881,106.90105 L163.73222,190.89259" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="57.438" Canvas.Top="88.359">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="-45" TranslateX="-1.4063839337552508E-07" TranslateY="9.5845687830831139E-08"/>
+                            </Path.RenderTransform>
+                        </Path>
+                        <Path Data="M-128.27692,106.52034 L-128.09351,190.51189" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="67.541" Canvas.Top="88.363">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="45" TranslateX="1.4257289215890978E-07" TranslateY="-2.1429102936565414E-08"/>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                    <Canvas x:Name="CommandRectangle2" Height="102" Width="128" Canvas.Left="256" Canvas.Top="88">
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener Tap="OnTapCommand2"/>
+                        </toolkit:GestureService.GestureListener>
+                        <Rectangle Fill="#FFF4F4F5" Height="56" Stroke="Red" Width="128"/>
+                        <TextBlock x:Name="Command2" TextWrapping="Wrap" Height="48" Width="128" Foreground="#FFF70F0F"><Run FontStyle="Italic" Text="a device"/><LineBreak/><Run FontStyle="Italic" Text="do something"/></TextBlock>
+                        <Path Data="M17.635965,98.715851 L17.819376,182.7074" Fill="#FFFFFF00" Height="49.531" Canvas.Left="62.498" Stretch="Fill" Stroke="Red" StrokeThickness="3" Canvas.Top="54" UseLayoutRounding="False" Width="3.001"/>
+                        <Path Data="M163.54881,106.90105 L163.73222,190.89259" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="57.438" Canvas.Top="88.359">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="-45" TranslateX="-1.4063839337552508E-07" TranslateY="9.5845687830831139E-08"/>
+                            </Path.RenderTransform>
+                        </Path>
+                        <Path Data="M-128.27692,106.52034 L-128.09351,190.51189" Fill="#FFFFFF00" Height="16" Stretch="Fill" Stroke="Red" StrokeThickness="3" UseLayoutRounding="False" Width="3.001" RenderTransformOrigin="0.5,0.5" Canvas.Left="67.541" Canvas.Top="88.363">
+                            <Path.RenderTransform>
+                                <CompositeTransform Rotation="45" TranslateX="1.4257289215890978E-07" TranslateY="-2.1429102936565414E-08"/>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                    <Canvas x:Name="EndCanvas2" Width="82" Height="80" Canvas.Left="63" Canvas.Top="189">
+                        <Ellipse Fill="#FFF4F4F5" Height="35" Stroke="Red" Width="35"/>
+                        <TextBlock TextWrapping="Wrap" Text="end" Foreground="#FFF50606" Height="33" Width="35" Canvas.Top="2"/>
+                    </Canvas>
+                    <Canvas x:Name="EndCanvas2_Copy" Width="82" Height="80" Canvas.Left="303" Canvas.Top="189">
+                        <Ellipse Fill="#FFF4F4F5" Height="35" Stroke="Red" Width="35"/>
+                        <TextBlock TextWrapping="Wrap" Text="end" Foreground="#FFF50606" Height="33" Width="35" Canvas.Top="2"/>
+                    </Canvas>
+                </Canvas>
+
             </Grid>
 
-        </controls:PivotItem>
+        </controls:PanoramaItem>
 
-    </controls:Pivot>
+    </controls:Panorama>
 
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar>
+        <shell:ApplicationBar StateChanged="Appbar_StateChanged" Opacity="0">
             <shell:ApplicationBarIconButton x:Name="appbarAddButton" 
                                             IconUri="/Images/appbar.add.rest.png" 
                                             Text="Add" 
                                             Click="OnAppbarAddClick"/>
-
-           <!--  <shell:ApplicationBarIconButton x:Name="appbarLastButton" 
-                                            IconUri="/Images/appbar.back.rest.png" 
-                                            Text="last page" 
-                                            Click="OnAppbarBackClick" />
-
-            <shell:ApplicationBarIconButton x:Name="appbarNextButton" 
-                                            IconUri="/Images/appbar.next.rest.png" 
-                                            Text="next page" 
-                                            Click="OnAppbarNextClick" /> -->
-
-            <shell:ApplicationBarIconButton x:Name="appbarDeleteButton" 
-                                            IconUri="/Images/appbar.delete.rest.png" 
-                                            Text="Remove" 
-                                            Click="OnAppbarDeleteClick" />
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Sign Up"
+                                              Click="OnClickSignUp">
+                </shell:ApplicationBarMenuItem>
+                
                 <shell:ApplicationBarMenuItem Text="Program This!"
                                               Click="OnClickProgramThis">
                 </shell:ApplicationBarMenuItem>
 
+                <shell:ApplicationBarMenuItem Text="sort by name"
+                                              Click="OnClickSortByName">
+                </shell:ApplicationBarMenuItem>
+
+                <shell:ApplicationBarMenuItem Text="sort by location"
+                                              Click="OnClickSortByLocation">
+                </shell:ApplicationBarMenuItem>
+                
                 <shell:ApplicationBarMenuItem Text="View Previous Program"
                                               Click="OnClickViewProgram">
                 </shell:ApplicationBarMenuItem>

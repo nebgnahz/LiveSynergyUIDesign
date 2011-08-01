@@ -19,3 +19,15 @@ C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveS
 C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.add.rest.png
 C:\Users\v-benzh\Documents\Visual Studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Component\samplePhoto.jpg
 C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\AddNewThing.g.i.cs
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.save.rest.png
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\SignUpPage.g.i.cs
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\ChooseGroupAtMSRA.g.i.cs
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Microsoft.Phone.Controls.Toolkit.pdb
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Microsoft.Phone.Controls.Toolkit.xml
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\ViewObjectPage.g.i.cs
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.cancel.rest.png
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.check.rest.png
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\Program.g.i.cs
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\Bin\Debug\Images\appbar.run.rest.png
+C:\Users\v-benzh\documents\visual studio 2010\Projects\LiveSynergyUIDesign\LiveSynergyUIDesign\obj\Debug\LongListSelection.g.i.cs
